@@ -22,7 +22,7 @@
 	"autoload": {
         "psr-4": {
             "ilateral\\SilverStripe\\SlightlyBetterBulkLoader\\": "src",
-            "ilateral\\SilverStripe\\SlightlyBetterBulkLoader\\Tests": "tests"
+            "ilateral\\SilverStripe\\SlightlyBetterBulkLoader\\Tests\\": "tests"
         }
     },
     "scripts": {
