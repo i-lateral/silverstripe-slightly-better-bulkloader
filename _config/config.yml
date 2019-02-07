@@ -1,0 +1,9 @@
+---
+Name: betterbulkloaderconfig
+---
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Dev\BulkLoader_Result:
+    class: ilateral\SilverStripe\SlightlyBetterBulkLoader\BulkLoader_Result
+SilverStripe\Dev\BulkLoader:
+  extensions:
+    - ilateral\SilverStripe\SlightlyBetterBulkLoader\BulkLoaderExtension
