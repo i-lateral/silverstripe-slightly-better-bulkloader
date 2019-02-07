@@ -1,8 +1,8 @@
 {
 	"name":"i-lateral/silverstripe-slightly-better-bulkloader",
 	"type": "silverstripe-vendormodule",
-	"description": "GridFieldAddOns is a collection of plugins for the Silverstripe GridField.",
-	"keywords": ["silverstripe", "gridfield", "component"],
+	"description": "It's the SilverStripe bulk loader, but ever so slightly better",
+	"keywords": ["silverstripe", "csv", "import", "bulkload"],
 	"license": "BSD-3-Clause",
 	"homepage": "https://github.com/i-lateral/silverstripe-slightly-better-bulkloader",
 	"authors":[
