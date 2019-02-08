@@ -83,7 +83,7 @@ class CsvBulkLoader extends SS_CsvBulkLoader
 
     /**
      * Process a single record
-     * 
+     *
      * @todo Better messages for relation checks and duplicate detection
      * Note that columnMap isn't used.
      *

@@ -17,7 +17,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
      *
      * @var array (see {@link $created})
      */
-    protected $errors = array();
+    protected $errors = [];
 
     /**
      * Return the number of errors
@@ -33,7 +33,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
      * Add an error message to the stack
      *
      * @param string $message The error message
-     * 
+     *
      * @return self
      */
     public function addError($message, $id = null)
@@ -64,7 +64,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
 
     /**
      * Get he total number of results tracked
-     * 
+     *
      * @return int
      */
     public function getTotal()
@@ -76,7 +76,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
      * Get created array
      *
      * @return array
-     */ 
+     */
     public function getCreated()
     {
         return $this->created;
@@ -86,7 +86,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
      * Get updated array
      *
      * @return array
-     */ 
+     */
     public function getUpdated()
     {
         return $this->updated;
@@ -96,7 +96,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
      * Get updated array
      *
      * @return array
-     */ 
+     */
     public function getDeleted()
     {
         return $this->deleted;
@@ -106,7 +106,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
      * Get errors array
      *
      * @return array
-     */ 
+     */
     public function getErrors()
     {
         return $this->errors;
@@ -114,7 +114,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
 
     /**
      * Get an array of all messages stored
-     * 
+     *
      * @return array
      */
     public function getMessagesArray()
@@ -125,7 +125,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
             $messages[] = _t(
                 'SilverStripe\\Admin\\ModelAdmin.IMPORTEDRECORDS',
                 "Imported {count} records.",
-                array('count' => $this->CreatedCount())
+                ['count' => $this->CreatedCount()]
             );
         }
 
@@ -133,7 +133,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
             $messages[] = _t(
                 'SilverStripe\\Admin\\ModelAdmin.UPDATEDRECORDS',
                 "Updated {count} records.",
-                array('count' => $results->UpdatedCount())
+                ['count' => $results->UpdatedCount()]
             );
         }
 
@@ -141,7 +141,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
             $messages[] = _t(
                 'SilverStripe\\Admin\\ModelAdmin.DELETEDRECORDS',
                 "Deleted {count} records.",
-                array('count' => $results->DeletedCount())
+                ['count' => $results->DeletedCount()]
             );
         }
         
@@ -151,9 +151,9 @@ class BulkLoader_Result extends SS_BulkLoader_Result
 
     /**
      * Return a string of all messages (that can be rendered into a message window)
-     * 
+     *
      * @param bool $html Add the newline as a HTML "<br/>"
-     * 
+     *
      * @return string
      */
     public function getMessagesString($delimiter = ";")
@@ -163,7 +163,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
 
     /**
      * Get the "type" of message (using SilverStripe's Validation result)
-     * 
+     *
      * @return string
      */
     public function getMessageType()

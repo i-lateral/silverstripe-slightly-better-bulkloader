@@ -110,5 +110,4 @@ class CSVBulkLoaderTest extends SapphireTest
         $this->assertNull($obj);
         fclose($file);
     }
-
 }

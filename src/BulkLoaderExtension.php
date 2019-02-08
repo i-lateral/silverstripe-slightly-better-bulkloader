@@ -12,7 +12,7 @@ class BulkLoaderExtension extends Extension
 
     /**
      * Try to find any fields that may be required by the current object
-     * 
+     *
      * @return array
      */
     public function getRequiredFields($use_field_labels = false)

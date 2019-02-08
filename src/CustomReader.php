@@ -8,10 +8,10 @@ class CustomReader extends Reader
 {
     /**
      * Should this reader ignore column headers that are null when importing?
-     * 
+     *
      * Sometimes Excel adds null headers to the end of a CSV and this can result in the
      * CSV failing to parse.
-     * 
+     *
      * @var boolean
      */
     protected $ignore_empty_headers = true;
@@ -48,8 +48,8 @@ class CustomReader extends Reader
      * header column (a column that is not null and is the last
      * item in the list that is not null).
      *
-     * @param array $keys 
-     * 
+     * @param array $keys
+     *
      * @return int
      */
     protected function findLastHeaderPos(array $keys)
@@ -91,7 +91,7 @@ class CustomReader extends Reader
      * Get the ignore_empty_headers param
      *
      * @return boolean
-     */ 
+     */
     public function getIgnoreEmptyHeaders()
     {
         return $this->ignore_empty_headers;
@@ -103,7 +103,7 @@ class CustomReader extends Reader
      * @param boolean $ignore_empty_headers Ignore header keys that are blank?
      *
      * @return self
-     */ 
+     */
     public function setIgnoreEmptyHeaders(boolean $ignore_empty_headers)
     {
         $this->ignore_empty_headers = $ignore_empty_headers;
