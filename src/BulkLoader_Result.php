@@ -170,7 +170,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
     {
         $type = ValidationResult::TYPE_GOOD;
 
-        if (count($results->getErrors()) > 0) {
+        if (count($this->getErrors()) > 0) {
             $type = ValidationResult::TYPE_ERROR;
         }
 
