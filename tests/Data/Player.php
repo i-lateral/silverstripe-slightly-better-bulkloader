@@ -18,6 +18,10 @@ class Player extends DataObject implements TestOnly
         'Status' => 'Varchar'
     ];
 
+    private static $field_labels = [
+        'FirstName' => 'Player Name'
+    ];
+
     private static $required_fields = [
         'FirstName',
         'Birthday'
