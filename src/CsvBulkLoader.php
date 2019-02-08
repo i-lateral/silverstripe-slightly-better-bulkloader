@@ -106,21 +106,9 @@ class CsvBulkLoader extends SS_CsvBulkLoader
         $missing = [];
 
         foreach ($required as $field) {
-            $valid = false;
-            $label = $obj->fieldLabel($field);
-
-            // Is the field label used instead of the field name and is it set?
-            if (isset($record[$label]) && !empty($record[$label])) {
-                $valid = true;
-            }
-
             // Is required data missing? If so track an error
-            if (!$valid && (isset($record[$field]) && !empty($record[$field]))) {
-                $valid = true;
-            }
-
-            if (!$valid) {
-                $missing[] = $label . "/" . $field;
+            if (!isset($record[$field]) || (isset($record[$field]) && empty($record[$field]))) {
+                $missing[] = $field;
             }
         }
 

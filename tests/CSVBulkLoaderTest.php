@@ -56,34 +56,6 @@ class CSVBulkLoaderTest extends SapphireTest
     }
 
     /**
-     * Does the importer correct CSV when using a Field Label?
-     */
-    public function testFieldLabel()
-    {
-        $loader = new CsvBulkLoader(Player::class);
-        $filepath = $this->csvPath . 'PlayerFieldLabel.csv';
-        $file = fopen($filepath, 'r');
-        $results = $loader->load($filepath);
-
-        $this->assertEquals(
-            5,
-            $results->CreatedCount(),
-            'Test correct count of imported data'
-        );
-
-        $obj = DataObject::get_one(
-            Player::class,
-            [ "FirstName" => 'John' ]
-        );
-
-        $this->assertNotNull($obj);
-        $this->assertEquals("He's a good guy", $obj->Biography);
-        $this->assertEquals("1988-01-31", $obj->Birthday);
-        $this->assertEquals("1", $obj->IsRegistered);
-        fclose($file);
-    }
-
-    /**
      * Does the importer fail on a duplicate column?
      */
     public function testDuplicateColumn()
