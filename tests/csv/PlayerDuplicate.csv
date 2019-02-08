@@ -1,0 +1,7 @@
+"FirstName","FirstName","Biography","Birthday","IsRegistered"
+"John","John","He's a good guy","1988-01-31","1"
+"Jane","Jane","She is awesome.
+So awesome that she gets multiple rows and \"escaped\" strings in her biography",,"1982-01-31","0"
+"Jamie","Jamie","Pretty old\, with an escaped comma","1882-01-31","1"
+"Järg","Järg","Unicode FTW","1982-06-30","1"
+"Jacob","Jacob","	Likes leading tabs in his biography","2000-04-30","0"

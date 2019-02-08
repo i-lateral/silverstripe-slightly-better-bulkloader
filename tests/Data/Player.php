@@ -12,7 +12,8 @@ class Player extends DataObject implements TestOnly
         'Biography' => 'HTMLText',
         'Birthday' => 'Date',
         'ExternalIdentifier' => 'Varchar(255)',
-        'IsRegistered' => 'Boolean'
+        'IsRegistered' => 'Boolean',
+        'Status' => 'Varchar'
     );
 
     private static $required_fields = [
