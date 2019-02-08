@@ -7,6 +7,8 @@ use SilverStripe\ORM\DataObject;
 
 class Player extends DataObject implements TestOnly
 {
+    private static $table_name = "SlightlyBetterBulkLoader_Player";
+
     private static $db = [
         'FirstName' => 'Varchar(255)',
         'Biography' => 'HTMLText',
