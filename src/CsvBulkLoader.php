@@ -38,7 +38,7 @@ class CsvBulkLoader extends SS_CsvBulkLoader
                 return $row;
             };
 
-            if ($this->columnMap) {
+            if (isset($this->columnMap) && count($this->columnMap)) {
                 $headerMap = $this->getNormalisedColumnMap();
                 $remapper = function ($row, $rowOffset, $iterator) use ($headerMap, $tabExtractor) {
                     $row = $tabExtractor($row, $rowOffset, $iterator);
@@ -59,14 +59,18 @@ class CsvBulkLoader extends SS_CsvBulkLoader
                 $remapper = $tabExtractor;
             }
 
+            $rows = null;
+
             if ($this->hasHeaderRow) {
                 $rows = $csvReader->fetchAssoc(0, $remapper);
             } elseif ($this->columnMap) {
                 $rows = $csvReader->fetchAssoc($headerMap, $remapper);
             }
 
-            foreach ($rows as $row) {
-                $this->processRecord($row, $this->columnMap, $result, $preview);
+            if (!empty($rows)) {
+                foreach ($rows as $row) {
+                    $this->processRecord($row, $this->columnMap, $result, $preview);
+                }
             }
         } catch (\Exception $e) {
             $failedMessage = sprintf("Failed to parse %s", $filepath);
