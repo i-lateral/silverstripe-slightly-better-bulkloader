@@ -60,7 +60,7 @@ class MyImportForm extends Form
         $results = $loader->load($_FILES['_CsvFile']['tmp_name']);
 
         $form->sessionMessage(
-            $results->getMessageString("</br>"),
+            $results->getMessagesString("</br>"),
             $results->getMessageType(),
             ValidationResult::CAST_HTML
         );
