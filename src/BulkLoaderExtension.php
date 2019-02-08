@@ -9,7 +9,6 @@ use SilverStripe\Core\Extension;
  */
 class BulkLoaderExtension extends Extension
 {
-
     /**
      * Try to find any fields that may be required by the current object
      *
@@ -44,11 +43,7 @@ class BulkLoaderExtension extends Extension
 
         // Ensure we use a field label that would have been exported
         foreach ($required as $field) {
-            if ($use_field_labels) {
-                $custom[] = $obj->fieldLabel($field);
-            } else {
-                $custom[] = $field;
-            }
+            $custom[] = $field;
         }
 
         return $custom;

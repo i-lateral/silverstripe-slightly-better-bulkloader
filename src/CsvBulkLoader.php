@@ -102,15 +102,41 @@ class CsvBulkLoader extends SS_CsvBulkLoader
     {
         $required = $this->getRequiredFields();
         $current_row = $results->getTotal() + 1;
+        $obj = singleton($this->objectClass);
+        $missing = [];
 
         foreach ($required as $field) {
-            // Is required data missing? If so track an error
-            if (!isset($record[$field]) || isset($record[$field]) && empty($record[$field])) {
-                $results->addError(
-                    "Required field '{$field}' is not set on row '{$current_row}'"
-                );
-                return null;
+            $valid = false;
+            $label = $obj->fieldLabel($field);
+
+            // Is the field label used instead of the field name and is it set?
+            if (isset($record[$label]) && !empty($record[$label])) {
+                $valid = true;
             }
+
+            // Is required data missing? If so track an error
+            if (!$valid && (isset($record[$field]) && !empty($record[$field]))) {
+                $valid = true;
+            }
+
+            if (!$valid) {
+                $missing[] = $label . "/" . $field;
+            }
+        }
+
+        // If we have missing data, add an error
+        if (count($missing) > 0) {
+            $results->addError(
+                _t(
+                    __CLASS__ . '.Required',
+                    'Required fields "{fields}" not set on row "{row}"',
+                    [
+                        'fields' => implode(", ", $missing),
+                        'row' => $current_row
+                    ]
+                )
+            );
+            return null;
         }
 
         // If validation passed, process as usual
