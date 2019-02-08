@@ -133,7 +133,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
             $messages[] = _t(
                 'SilverStripe\\Admin\\ModelAdmin.UPDATEDRECORDS',
                 "Updated {count} records.",
-                ['count' => $results->UpdatedCount()]
+                ['count' => $this->UpdatedCount()]
             );
         }
 
@@ -141,7 +141,7 @@ class BulkLoader_Result extends SS_BulkLoader_Result
             $messages[] = _t(
                 'SilverStripe\\Admin\\ModelAdmin.DELETEDRECORDS',
                 "Deleted {count} records.",
-                ['count' => $results->DeletedCount()]
+                ['count' => $this->DeletedCount()]
             );
         }
         
