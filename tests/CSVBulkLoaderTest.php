@@ -45,7 +45,7 @@ class CSVBulkLoaderTest extends SapphireTest
 
         $obj = DataObject::get_one(
             Player::class,
-            [ 'FirstName' => 'John' ]
+            [ '"FirstName"' => 'John' ]
         );
 
         $this->assertNotNull($obj);
@@ -76,7 +76,7 @@ class CSVBulkLoaderTest extends SapphireTest
 
         $obj = DataObject::get_one(
             Player::class,
-            [ 'FirstName' => 'John' ]
+            [ '"FirstName"' => 'John' ]
         );
 
         $this->assertNull($obj);
@@ -104,7 +104,7 @@ class CSVBulkLoaderTest extends SapphireTest
 
         $obj = DataObject::get_one(
             Player::class,
-            ['FirstName' => 'Jane']
+            ['"FirstName"' => 'Jane']
         );
 
         $this->assertNull($obj);
